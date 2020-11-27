@@ -1,46 +1,37 @@
-# Getting Started with Create React App
+# Mormora
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Likelion MJU Nature Web
 
-## Available Scripts
+## Requirements
 
-In the project directory, you can run:
+### Node.js
 
-### `yarn start`
+package.json에 engines 값 참고
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Yarn
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+패키지 관리에 사용
 
-### `yarn test`
+#### macOS, Homebrew
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+brew install yarn
+```
 
-### `yarn build`
+## Development
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 의존 패키지 설치
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+yarn # or yarn install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### React 17버전 Typescript 문제 해결
 
-### `yarn eject`
+node_modules/react-scripts/scripts/utils/verifyTypeScriptSetup.js의 151번째줄을 아래와 같이 바꿔야 한다.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+```javascript
+  hasJsxRuntime && semver.gte(ts.version, '4.1.0-beta')
+    ? ts.JsxEmit.ReactJSX  // 원래 코드는 ts.JsxEmit.ReactJsx
+    : ts.JsxEmit.React,
+```
