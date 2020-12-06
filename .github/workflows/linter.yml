@@ -18,5 +18,8 @@ jobs:
       - name: Install modules
         run: yarn
 
-      - name: Run lint
+      - name: eslint
         run: yarn lint
+
+      - name: tsc
+        run: yarn tsc
