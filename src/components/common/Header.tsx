@@ -9,7 +9,7 @@ const HeaderBlock = styled.header`
   background-color: #212121;
   color: #fafafa;
   width: 100%;
-  height: 4rem;
+  height: ${({ theme }) => theme.constants.headerHeight};
 `;
 
 const HeaderList = styled.ul`
@@ -26,7 +26,7 @@ const HeaderListItem = styled.li``;
 const Logo = styled.img`
   /* align-self는 safari에서 깨지는거 방지용 */
   align-self: center;
-  width: 9rem;
+  width: ${({ theme }) => theme.constants.logoWidth};
   height: auto;
 `;
 
