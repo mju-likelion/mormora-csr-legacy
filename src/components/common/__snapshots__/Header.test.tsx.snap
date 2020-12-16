@@ -3,12 +3,12 @@
 exports[`<Header /> matches snapshot 1`] = `
 <div>
   <header
-    class="css-1eal7hw"
+    class="css-1oykj88"
   >
-    <ul
-      class="css-lqika9"
+    <div
+      class="css-1lxb4d8"
     >
-      <li
+      <div
         class="css-0"
       >
         <a
@@ -20,8 +20,8 @@ exports[`<Header /> matches snapshot 1`] = `
             src="https://mju-likelion.s3.ap-northeast-2.amazonaws.com/static/basiclogo_E_H_W.png"
           />
         </a>
-      </li>
-    </ul>
+      </div>
+    </div>
   </header>
 </div>
 `;
