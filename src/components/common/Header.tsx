@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
+import Button from 'components/base/Button';
 import Responsive from 'components/base/Responsive';
 
 const Block = styled.header`
@@ -14,6 +15,7 @@ const Block = styled.header`
 
 const Inner = styled(Responsive)`
   display: flex;
+  justify-content: space-between;
   align-items: center;
   list-style: none;
   height: ${({ theme }) => theme.constants.headerHeight};
@@ -28,6 +30,17 @@ const Logo = styled.img`
   height: auto;
 `;
 
+const Right = styled.div``;
+
+const LoginButton = styled(Button)`
+  padding: 0.5rem 1rem;
+`;
+
+const RegisterButton = styled(LoginButton)`
+  border: 0.75px solid gray;
+  border-radius: 8px;
+`;
+
 function Header() {
   return (
     <Block>
@@ -40,6 +53,10 @@ function Header() {
             />
           </Link>
         </Left>
+        <Right>
+          <LoginButton>로그인</LoginButton>
+          <RegisterButton>회원가입</RegisterButton>
+        </Right>
       </Inner>
     </Block>
   );
