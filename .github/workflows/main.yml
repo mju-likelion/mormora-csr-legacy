@@ -6,8 +6,8 @@ on: push
 jobs:
   # Set the job key. The key is displayed as the job name
   # when a job name is not provided
-  lint_and_typecheck:
-    name: Lint and typecheck
+  lint_typecheck_and_test:
+    name: lint, typecheck, and test
     runs-on: ubuntu-latest
 
     steps:
@@ -23,3 +23,6 @@ jobs:
 
       - name: tsc
         run: yarn tsc
+
+      - name: test
+        run: yarn test
