@@ -6,7 +6,7 @@ exports[`<Header /> matches snapshot 1`] = `
     class="css-1oykj88"
   >
     <div
-      class="css-1lxb4d8"
+      class="css-pedbkj"
     >
       <div
         class="css-0"
@@ -20,6 +20,20 @@ exports[`<Header /> matches snapshot 1`] = `
             src="https://mju-likelion.s3.ap-northeast-2.amazonaws.com/static/basiclogo_E_H_W.png"
           />
         </a>
+      </div>
+      <div
+        class="css-0"
+      >
+        <button
+          class="css-1p5xdpr"
+        >
+          로그인
+        </button>
+        <button
+          class="css-1orsszh"
+        >
+          회원가입
+        </button>
       </div>
     </div>
   </header>
