@@ -46,7 +46,7 @@ const RightWing = styled.span`
 `;
 
 const B = styled.span`
-  font-weight: bold;
+  font-weight: 600;
   margin-right: 8px;
 `;
 

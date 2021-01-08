@@ -1,7 +1,7 @@
 import { Route, Switch } from 'react-router-dom';
 
 import MainPage from 'pages/MainPage';
-import MemberYears from 'pages/MemberYears';
+import Members from 'pages/Members';
 
 const Routes = () => {
   return (
@@ -9,7 +9,7 @@ const Routes = () => {
       <Route exact path="/">
         <MainPage />
       </Route>
-      <Route exact path="memberyears" component={MemberYears} />
+      <Route exact path="/members" component={Members} />
     </Switch>
   );
 };
