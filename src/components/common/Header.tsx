@@ -1,8 +1,12 @@
 import styled from '@emotion/styled';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import ModalPortal from 'ModalPortal';
 import Button from 'components/base/Button';
 import Responsive from 'components/base/Responsive';
+import LoginModal from 'components/modal/LoginModal';
+import SigninModal from 'components/modal/SigninModal';
 
 const Block = styled.header`
   position: sticky;
@@ -42,23 +46,40 @@ const RegisterButton = styled(LoginButton)`
 `;
 
 function Header() {
+  const [loginModalOpen, setLoginModalOpen] = useState(false);
+  const [signinModalOpen, setSigninModalOpen] = useState(false);
+
+  function toggleLoginOpen() {
+    setLoginModalOpen(prev => !prev);
+  }
+
+  function toggleSigninOpen() {
+    setSigninModalOpen(prev => !prev);
+  }
+
   return (
-    <Block>
-      <Inner>
-        <Left>
-          <Link to="/">
-            <Logo
-              src="https://mju-likelion.s3.ap-northeast-2.amazonaws.com/static/basiclogo_E_H_W.png"
-              alt="MJU Likelion Logo"
-            />
-          </Link>
-        </Left>
-        <Right>
-          <LoginButton>로그인</LoginButton>
-          <RegisterButton>회원가입</RegisterButton>
-        </Right>
-      </Inner>
-    </Block>
+    <>
+      <Block>
+        <Inner>
+          <Left>
+            <Link to="/">
+              <Logo
+                src="https://mju-likelion.s3.ap-northeast-2.amazonaws.com/static/basiclogo_E_H_W.png"
+                alt="MJU Likelion Logo"
+              />
+            </Link>
+          </Left>
+          <Right>
+            <LoginButton onClick={toggleLoginOpen}>로그인</LoginButton>
+            <RegisterButton onClick={toggleSigninOpen}>회원가입</RegisterButton>
+          </Right>
+        </Inner>
+      </Block>
+      <ModalPortal>
+        {loginModalOpen && <LoginModal onClose={toggleLoginOpen} />}
+        {signinModalOpen && <SigninModal onClose={toggleSigninOpen} />}
+      </ModalPortal>
+    </>
   );
 }
 
