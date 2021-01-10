@@ -25,12 +25,22 @@ const Members: React.FC = () => {
 
         <Title>대표</Title>
         <Profile />
+        {ByPresident()}
         <Title>운영진</Title>
         <Profile />
         <Title>아기사자</Title>
         <Profile />
       </Grid>
     </BackColor>
+  );
+};
+
+const ByPresident = () => {
+  return (
+    <>
+      <Title>부대표</Title>
+      <Profile />
+    </>
   );
 };
 

@@ -1,16 +1,26 @@
 import styled from '@emotion/styled';
 import React from 'react';
 
-const Member = styled.div`
+const Member = styled.button`
+  cursor: pointer;
   width: 208px;
   height: 288px;
   background: #e5e5e5;
+  border: 1px solid rgb(118, 118, 118);
   border-radius: 6px;
   margin-bottom: 48px;
+  padding: 0px 0px;
   .profile {
-    width: 208px;
+    margin-top: 2px;
+    width: 203px;
     height: 195px;
     border-radius: 6px;
+    transition: transform 0.2s;
+    :hover {
+      -ms-transform: scale(1.03);
+      -webkit-transform: scale(1.03);
+      transform: scale(1.03);
+    }
   }
   .name {
     color: #000000;
