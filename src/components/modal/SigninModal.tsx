@@ -5,7 +5,7 @@ interface SigninModalProps {
 }
 
 function SigninModal({ onClose }: SigninModalProps) {
-  return <AuthModal type="signin" onClose={onClose} />;
+  return <AuthModal type='signin' onClose={onClose} />;
 }
 
 export default SigninModal;
