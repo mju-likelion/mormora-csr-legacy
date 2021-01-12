@@ -5,7 +5,7 @@ import MainPage from 'pages/MainPage';
 const Routes = () => {
   return (
     <Switch>
-      <Route path="/">
+      <Route path='/'>
         <MainPage />
       </Route>
     </Switch>

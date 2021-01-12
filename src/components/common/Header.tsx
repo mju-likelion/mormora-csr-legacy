@@ -62,10 +62,10 @@ function Header() {
       <Block>
         <Inner>
           <Left>
-            <Link to="/">
+            <Link to='/'>
               <Logo
-                src="https://mju-likelion.s3.ap-northeast-2.amazonaws.com/static/basiclogo_E_H_W.png"
-                alt="MJU Likelion Logo"
+                src='https://mju-likelion.s3.ap-northeast-2.amazonaws.com/static/basiclogo_E_H_W.png'
+                alt='MJU Likelion Logo'
               />
             </Link>
           </Left>
