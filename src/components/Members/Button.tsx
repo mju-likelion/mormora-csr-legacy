@@ -3,7 +3,7 @@ import React from 'react';
 
 const ButtonGroup = styled.span`
   display: flex;
-  padding: 50px 50px 50px 0px;
+  margin-top: 50px;
 `;
 
 const ButtonOne = styled.span`

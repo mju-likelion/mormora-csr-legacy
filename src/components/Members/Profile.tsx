@@ -8,7 +8,9 @@ const Member = styled.button`
   background: #e5e5e5;
   border: 1px solid rgb(118, 118, 118);
   border-radius: 6px;
-  margin-bottom: 48px;
+  margin-top: 50px;
+  margin-right: 35px;
+  margin-bottom: 5px;
   padding: 0px 0px;
   .profile {
     margin-top: 2px;

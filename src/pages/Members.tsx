@@ -14,7 +14,22 @@ const Grid = styled.div`
 
 const Title = styled.div`
   font-weight: 600;
-  margin-bottom: 48px;
+  margin-top: 45px;
+`;
+
+const CardScroll = styled.div`
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  &::-webkit-scrollbar {
+    height: 8px;
+    border-radius: 6px;
+    background: #f2f2f2;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #ff9e1b;
+    border-radius: 6px;
+  }
 `;
 
 const Members: React.FC = () => {
@@ -27,7 +42,13 @@ const Members: React.FC = () => {
         <Profile />
         {ByPresident()}
         <Title>운영진</Title>
-        <Profile />
+        <CardScroll>
+          <Profile />
+          <Profile />
+          <Profile />
+          <Profile />
+          <Profile />
+        </CardScroll>
         <Title>아기사자</Title>
         <Profile />
       </Grid>
