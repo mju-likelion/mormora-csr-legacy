@@ -37,7 +37,7 @@ function AuthModal({ type, onClose }: AuthModalProps) {
     <ModalFullScreen>
       <ModalBlock>
         {type} Modal
-        <button type="button" onClick={onClose}>
+        <button type='button' onClick={onClose}>
           Close Modal
         </button>
       </ModalBlock>

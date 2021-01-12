@@ -5,7 +5,7 @@ interface LoginModalProps {
 }
 
 function LoginModal({ onClose }: LoginModalProps) {
-  return <AuthModal type="login" onClose={onClose} />;
+  return <AuthModal type='login' onClose={onClose} />;
 }
 
 export default LoginModal;
