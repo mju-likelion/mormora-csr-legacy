@@ -39,8 +39,6 @@ const Members: React.FC = () => {
     <BackColor>
       <Grid>
         <ButtonGroup />
-        <ButtonGroup />
-        <ButtonGroup />
 
         <Title>대표</Title>
         <Profile />
