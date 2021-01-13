@@ -5,10 +5,10 @@ interface ModalPortalProps {
 }
 
 function ModalPortal({ children }: ModalPortalProps) {
-  const modal = document.createElement('div');
-  modal.setAttribute('id', 'modal');
-  const body = document.querySelector('body');
-  body!.appendChild(modal);
+  const modal = document.getElementById('modal');
+  if (!modal) {
+    throw Error('#modal is not exist on index.html');
+  }
 
   return ReactDOM.createPortal(children, modal);
 }
