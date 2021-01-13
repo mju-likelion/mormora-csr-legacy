@@ -12,17 +12,17 @@ const Member = styled.button`
   margin-right: 35px;
   margin-bottom: 5px;
   padding: 0px 0px;
+  :hover {
+    -ms-transform: scale(1.03);
+    -webkit-transform: scale(1.03);
+    transform: scale(1.03);
+  }
   .profile {
     margin-top: 2px;
     width: 203px;
     height: 195px;
     border-radius: 6px;
     transition: transform 0.2s;
-    :hover {
-      -ms-transform: scale(1.03);
-      -webkit-transform: scale(1.03);
-      transform: scale(1.03);
-    }
   }
   .name {
     color: #000000;

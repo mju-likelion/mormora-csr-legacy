@@ -1,12 +1,12 @@
 import styled from '@emotion/styled';
 import React from 'react';
 
-const ButtonGroup = styled.span`
+const ButtonGroup = styled.div`
   display: flex;
   margin-top: 50px;
 `;
 
-const ButtonOne = styled.span`
+const ButtonOne = styled.div`
   padding-right: 48px;
 `;
 
