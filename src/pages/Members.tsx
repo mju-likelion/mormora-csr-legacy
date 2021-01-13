@@ -40,7 +40,7 @@ const Members: React.FC = () => {
 
         <Title>대표</Title>
         <Profile />
-        {ByPresident()}
+        {VicePresident()}
         <Title>운영진</Title>
         <CardScroll>
           <Profile />
@@ -56,7 +56,7 @@ const Members: React.FC = () => {
   );
 };
 
-const ByPresident = () => {
+const VicePresident = () => {
   return (
     <>
       <Title>부대표</Title>
