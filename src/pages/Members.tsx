@@ -1,11 +1,11 @@
 import styled from '@emotion/styled';
 import React from 'react';
 
-import Button from '../components/Members/Button';
+import ButtonGroup from '../components/Members/ButtonGroup';
 import Profile from '../components/Members/Profile';
 
 const BackColor = styled.div`
-  background-color: #000000;
+  background-color: #000;
 `;
 
 const Grid = styled.div`
@@ -21,11 +21,13 @@ const CardScroll = styled.div`
   white-space: nowrap;
   overflow-x: auto;
   overflow-y: hidden;
+
   &::-webkit-scrollbar {
+    background: #f2f2f2;
     height: 8px;
     border-radius: 6px;
-    background: #f2f2f2;
   }
+
   &::-webkit-scrollbar-thumb {
     background-color: #ff9e1b;
     border-radius: 6px;
@@ -36,7 +38,9 @@ const Members: React.FC = () => {
   return (
     <BackColor>
       <Grid>
-        <Button />
+        <ButtonGroup />
+        <ButtonGroup />
+        <ButtonGroup />
 
         <Title>대표</Title>
         <Profile />
