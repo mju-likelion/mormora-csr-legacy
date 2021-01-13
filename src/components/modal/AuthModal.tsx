@@ -7,7 +7,7 @@ interface AuthModalProps {
   onClose: () => void;
 }
 
-const ModalFullScreen = styled.div`
+const Wrapper = styled.div`
   display: flex;
   position: fixed;
   top: 0;
@@ -19,8 +19,9 @@ const ModalFullScreen = styled.div`
   height: 100%;
 `;
 
-const ModalBlock = styled.div`
+const Modal = styled.div`
   display: flex;
+  flex-direction: column;
   background-color: black;
   width: 606px;
   height: 480px;
@@ -34,14 +35,23 @@ const ModalBlock = styled.div`
 
 function AuthModal({ type, onClose }: AuthModalProps) {
   return (
-    <ModalFullScreen>
-      <ModalBlock>
-        {type} Modal
+    <Wrapper>
+      <Modal>
+        {type === 'login' ? '로그인' : '회원가입'}
         <button type='button' onClick={onClose}>
           Close Modal
         </button>
-      </ModalBlock>
-    </ModalFullScreen>
+        <input name='email' type='email' placeholder='Email' />
+        <input name='password' type='password' placeholder='Password' />
+        <button type='submit'>
+          {type === 'login' ? '로그인' : '회원가입'}
+        </button>
+        <button type='button'>비밀번호 찾기</button>
+        <button type='button'>
+          {type === 'login' ? '회원가입' : '로그인'}
+        </button>
+      </Modal>
+    </Wrapper>
   );
 }
 
