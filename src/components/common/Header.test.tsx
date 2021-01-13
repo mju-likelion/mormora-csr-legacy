@@ -6,6 +6,8 @@ import theme from 'theme';
 
 import Header from './Header';
 
+jest.mock('../../ModalPortal', () => () => <div id='modal' />);
+
 describe('<Header />', () => {
   it('has a logo', () => {
     const header = render(
