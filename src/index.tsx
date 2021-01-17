@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
+import { RecoilRoot } from 'recoil';
 
 import App from 'App';
 import reportWebVitals from 'reportWebVitals';
@@ -8,10 +9,12 @@ import GlobalStyles from 'theme/GlobalStyles';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <GlobalStyles />
-      <App />
-    </BrowserRouter>
+    <GlobalStyles />
+    <RecoilRoot>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </RecoilRoot>
   </React.StrictMode>,
   document.getElementById('root'),
 );

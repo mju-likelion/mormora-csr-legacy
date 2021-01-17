@@ -1,11 +1,9 @@
 import styled from '@emotion/styled';
+import { useEffect, useState } from 'react';
+import { useRecoilState } from 'recoil';
 
 import media from 'lib/media';
-
-interface AuthModalProps {
-  type: 'login' | 'signin';
-  onClose: () => void;
-}
+import { authModalState } from 'stores/headerAtom';
 
 const Wrapper = styled.div`
   display: flex;
@@ -33,22 +31,45 @@ const Modal = styled.div`
   }
 `;
 
-function AuthModal({ type, onClose }: AuthModalProps) {
+function AuthModal() {
+  const [type, setType] = useState('');
+  const [oppositeType, setOppositeType] = useState('');
+  const [authModal, setAuthModal] = useRecoilState(authModalState);
+
+  useEffect(() => {
+    if (authModal === 'login') {
+      setType('로그인');
+      setOppositeType('회원가입');
+    } else if (authModal === 'signin') {
+      setType('회원가입');
+      setOppositeType('로그인');
+    } else {
+      setType('');
+    }
+  }, [authModal]);
+
+  function handleClose() {
+    setAuthModal('off');
+  }
+
+  function handleSwitch() {
+    if (authModal === 'login') setAuthModal('signin');
+    else if (authModal === 'signin') setAuthModal('login');
+  }
+
   return (
     <Wrapper>
       <Modal>
-        {type === 'login' ? '로그인' : '회원가입'}
-        <button type='button' onClick={onClose}>
+        {type}
+        <button type='button' onClick={handleClose}>
           Close Modal
         </button>
         <input name='email' type='email' placeholder='Email' />
         <input name='password' type='password' placeholder='Password' />
-        <button type='submit'>
-          {type === 'login' ? '로그인' : '회원가입'}
-        </button>
+        <button type='submit'>{type}</button>
         <button type='button'>비밀번호 찾기</button>
-        <button type='button'>
-          {type === 'login' ? '회원가입' : '로그인'}
+        <button type='button' onClick={handleSwitch}>
+          {oppositeType}
         </button>
       </Modal>
     </Wrapper>
