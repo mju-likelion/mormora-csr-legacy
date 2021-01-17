@@ -1,12 +1,12 @@
 import styled from '@emotion/styled';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
 
 import ModalPortal from 'ModalPortal';
 import Button from 'components/base/Button';
 import Responsive from 'components/base/Responsive';
-import LoginModal from 'components/modal/LoginModal';
-import SigninModal from 'components/modal/SigninModal';
+import AuthModal from 'components/modal/AuthModal';
+import { authModalState } from 'stores/headerAtom';
 
 const Block = styled.header`
   position: sticky;
@@ -46,15 +46,14 @@ const RegisterButton = styled(LoginButton)`
 `;
 
 function Header() {
-  const [loginModalOpen, setLoginModalOpen] = useState(false);
-  const [signinModalOpen, setSigninModalOpen] = useState(false);
+  const [authModal, setAuthModal] = useRecoilState(authModalState);
 
-  function toggleLoginOpen() {
-    setLoginModalOpen(prev => !prev);
+  function handleLoginOpen() {
+    setAuthModal('login');
   }
 
-  function toggleSigninOpen() {
-    setSigninModalOpen(prev => !prev);
+  function handleSigninOpen() {
+    setAuthModal('signin');
   }
 
   return (
@@ -70,15 +69,12 @@ function Header() {
             </Link>
           </Left>
           <Right>
-            <LoginButton onClick={toggleLoginOpen}>로그인</LoginButton>
-            <RegisterButton onClick={toggleSigninOpen}>회원가입</RegisterButton>
+            <LoginButton onClick={handleLoginOpen}>로그인</LoginButton>
+            <RegisterButton onClick={handleSigninOpen}>회원가입</RegisterButton>
           </Right>
         </Inner>
       </Block>
-      <ModalPortal>
-        {loginModalOpen && <LoginModal onClose={toggleLoginOpen} />}
-        {signinModalOpen && <SigninModal onClose={toggleSigninOpen} />}
-      </ModalPortal>
+      <ModalPortal>{authModal !== 'off' && <AuthModal />}</ModalPortal>
     </>
   );
 }
