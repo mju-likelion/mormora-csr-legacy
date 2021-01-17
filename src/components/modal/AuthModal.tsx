@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { useEffect, useState } from 'react';
+import { MdClose } from 'react-icons/md';
 import { useRecoilState } from 'recoil';
 
 import media from 'lib/media';
@@ -23,12 +24,30 @@ const Modal = styled.div`
   background-color: black;
   width: 606px;
   height: 480px;
+  padding: 1.5rem 2rem 2rem 2rem;
 
   ${media.small} {
     flex: 1;
     width: auto;
     height: 100%;
   }
+`;
+
+const CloseButton = styled.div`
+  display: flex;
+  justify-content: flex-end;
+
+  &:hover {
+    svg {
+      cursor: pointer;
+    }
+  }
+`;
+
+const Title = styled.h1`
+  color: ${props => props.theme.colors.likelionOrange};
+  font-size: 1.5rem;
+  text-align: center;
 `;
 
 function AuthModal() {
@@ -60,10 +79,10 @@ function AuthModal() {
   return (
     <Wrapper>
       <Modal>
-        {type}
-        <button type='button' onClick={handleClose}>
-          Close Modal
-        </button>
+        <CloseButton onClick={handleClose}>
+          <MdClose />
+        </CloseButton>
+        <Title>{type}</Title>
         <input name='email' type='email' placeholder='Email' />
         <input name='password' type='password' placeholder='Password' />
         <button type='submit'>{type}</button>

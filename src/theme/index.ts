@@ -1,6 +1,7 @@
+import * as colors from './colors';
 import * as constants from './constants';
 
-const theme = { constants };
+const theme = { colors, constants };
 
 export default theme;
 
