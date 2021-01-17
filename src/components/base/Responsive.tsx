@@ -25,7 +25,6 @@ const Block = styled.div`
 `;
 
 function Responsive({ children, ...rest }: ResponsiveProps) {
-  // eslint-disable-next-line react/jsx-props-no-spreading
   return <Block {...rest}>{children}</Block>;
 }
 
