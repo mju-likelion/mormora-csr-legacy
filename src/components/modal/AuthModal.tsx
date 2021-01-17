@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { useFormik } from 'formik';
 import { useEffect, useState } from 'react';
 import { MdClose } from 'react-icons/md';
 import { useRecoilState } from 'recoil';
@@ -54,6 +55,16 @@ function AuthModal() {
   const [type, setType] = useState('');
   const [oppositeType, setOppositeType] = useState('');
   const [authModal, setAuthModal] = useRecoilState(authModalState);
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      password: '',
+    },
+    onSubmit: values => {
+      // eslint-disable-next-line no-console
+      console.log(values);
+    },
+  });
 
   useEffect(() => {
     if (authModal === 'login') {
@@ -83,9 +94,24 @@ function AuthModal() {
           <MdClose />
         </CloseButton>
         <Title>{type}</Title>
-        <input name='email' type='email' placeholder='Email' />
-        <input name='password' type='password' placeholder='Password' />
-        <button type='submit'>{type}</button>
+        <form onSubmit={formik.handleSubmit}>
+          <input
+            id='email'
+            name='email'
+            type='email'
+            placeholder='Email'
+            onChange={formik.handleChange}
+            value={formik.values.email}
+          />
+          <input
+            name='password'
+            type='password'
+            placeholder='Password'
+            onChange={formik.handleChange}
+            value={formik.values.password}
+          />
+          <button type='submit'>{type}</button>
+        </form>
         <button type='button'>비밀번호 찾기</button>
         <button type='button' onClick={handleSwitch}>
           {oppositeType}
