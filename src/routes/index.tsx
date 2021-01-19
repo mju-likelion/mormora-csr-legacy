@@ -6,10 +6,10 @@ import Members from 'pages/Members';
 const Routes = () => {
   return (
     <Switch>
-      <Route exact path="/">
+      <Route path='/'>
         <MainPage />
       </Route>
-      <Route exact path="/members" component={Members} />
+      <Route exact path='/members' component={Members} />
     </Switch>
   );
 };
