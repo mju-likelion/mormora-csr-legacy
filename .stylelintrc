@@ -1,13 +1,20 @@
 {
-  "processors": ["stylelint-processor-styled-components"],
+  "processors": [
+    "stylelint-processor-styled-components"
+  ],
   "extends": [
     "stylelint-config-standard",
     "stylelint-config-styled-components"
   ],
-  "plugins": ["stylelint-order"],
+  "plugins": [
+    "stylelint-order"
+  ],
   "rules": {
     "declaration-colon-newline-after": null,
-    "order/order": ["custom-properties", "rules"],
+    "order/order": [
+      "custom-properties",
+      "rules"
+    ],
     "order/properties-order": [
       "content",
       "display",
@@ -44,7 +51,10 @@
         ]
       },
       {
-        "properties": ["float", "clear"]
+        "properties": [
+          "float",
+          "clear"
+        ]
       },
       {
         "properties": [
@@ -136,10 +146,18 @@
         ]
       },
       {
-        "properties": ["overflow", "overflow-x", "overflow-y", "text-overflow"]
+        "properties": [
+          "overflow",
+          "overflow-x",
+          "overflow-y",
+          "text-overflow"
+        ]
       },
       {
-        "properties": ["visibility", "opacity"]
+        "properties": [
+          "visibility",
+          "opacity"
+        ]
       },
       {
         "properties": [
@@ -165,6 +183,7 @@
         ]
       }
     ],
+    "value-keyword-case": null,
     "value-list-comma-newline-after": null
   }
 }
