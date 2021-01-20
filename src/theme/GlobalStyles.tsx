@@ -30,12 +30,14 @@ const GlobalStyles: React.FC = () => (
         a,
         abbr,
         address,
+        button,
         cite,
         code,
         del,
         dfn,
         em,
         img,
+        input,
         ins,
         kbd,
         q,
@@ -130,6 +132,11 @@ const GlobalStyles: React.FC = () => (
         table {
           border-collapse: collapse;
           border-spacing: 0;
+        }
+
+        button,
+        input {
+          border-radius: 6px;
         }
 
         body {
