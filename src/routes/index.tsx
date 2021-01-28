@@ -6,7 +6,7 @@ import Members from 'pages/Members';
 const Routes = () => {
   return (
     <Switch>
-      <Route path='/'>
+      <Route exact path='/'>
         <MainPage />
       </Route>
       <Route exact path='/members' component={Members} />

@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 
+import ProfileImg from 'images/basicprofile.png';
+import icModalClose from 'images/icModalClose.svg';
 import media from 'lib/media';
 
 const Wrapper = styled.div`
@@ -28,6 +30,14 @@ const Modal = styled.div`
   }
 `;
 
+const CloseButton = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  margin-right: 20px;
+  cursor: pointer;
+`;
+
 const TitleBox = styled.div`
   display: flex;
   padding: 20px;
@@ -37,23 +47,14 @@ const TitleBox = styled.div`
   }
 `;
 
-const Title = styled.div`
+const SectionTitle = styled.div`
   font-size: 28px;
   font-weight: 600;
   padding: 20px;
 
-  .subTitle {
-    display: flex;
-  }
-
   .name {
-    padding: 20px;
-  }
-
-  .option {
-    font-size: 25px;
-    font-weight: 500;
-    padding: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
   }
 
   .body {
@@ -64,6 +65,15 @@ const Title = styled.div`
   }
 `;
 
+const SectionSubTitle = styled.div`
+  display: flex;
+`;
+
+const SectionSubTitleOption = styled.div`
+  display: grid;
+  grid-template-columns: 50% 50%;
+`;
+
 const Company = styled.div`
   font-size: 30px;
   font-weight: 500;
@@ -72,66 +82,65 @@ const Company = styled.div`
   margin-bottom: 20px;
 `;
 
-const Body = styled.div`
-  font-size: 20px;
-
-  .subBody {
-    display: flex;
-  }
-
-  .subOption {
-    display: block;
-  }
-
-  .name {
-    margin: 20px 20px 20px 20px;
-  }
-
-  .option {
-    margin: 15px;
-  }
+const SectionContents = styled.div`
+  display: grid;
+  grid-template-rows: 50% 50%;
+  padding-left: 20%;
 `;
 
-const ProfileDetail = () => {
+interface ProfileDetailProps {
+  close: Function;
+}
+// eslint-disable-next-line react/prop-types
+const ProfileDetail: React.FC<ProfileDetailProps> = ({ close }) => {
   return (
     <Wrapper>
       <Modal>
+        <CloseButton>
+          <img
+            src={icModalClose}
+            width='16px'
+            height='16px'
+            alt='기본 프로필'
+          />
+        </CloseButton>
+
         <TitleBox>
           <img
-            src='/static/image/basicprofile.png'
+            src={ProfileImg}
+            width='208px'
+            height='195px'
             alt='기본 프로필'
-            className='photo'
           />
-          <Title>
-            <div className='subTitle'>
+          <SectionTitle>
+            <SectionSubTitle>
               <div className='name'>유예빈</div>
-              <div className='option'>8기 대표</div>
-            </div>
-            <div className='subTitle'>
+              <div className='name'>|</div>
+              <div className='name'>8기 대표</div>
+            </SectionSubTitle>
+            <SectionSubTitleOption>
               <div className='body'>컴퓨터공학과</div>
               <div className='body'>60160000</div>
-            </div>
-            <div className='subTitle'>
+            </SectionSubTitleOption>
+            <SectionSubTitleOption>
               <div className='body'>휴대전화</div>
               <div className='body'>010-0000-0000</div>
-            </div>
-            <div className='subTitle'>
+            </SectionSubTitleOption>
+            <SectionSubTitleOption>
               <div className='body'>이메일 </div>
               <div className='body'>yuyaebean@gmail.com</div>
-            </div>
-          </Title>
+            </SectionSubTitleOption>
+          </SectionTitle>
         </TitleBox>
 
         <Company>#Watcha</Company>
-        <Body>
-          <div className='subBody'>
-            <div className='name'>웹사이트</div>
-            <div className='subOption'>
-              <div className='option'>https://github.com/soultree-fly</div>
-              <div className='option'>https://github.com/soultree-fly</div>
-            </div>
-          </div>
-        </Body>
+        <SectionTitle>
+          <div className='body'>웹사이트</div>
+          <SectionContents>
+            <div className='body'>https://github.com/soultree-fly</div>
+            <div className='body'>https://github.com/soultree-fly</div>
+          </SectionContents>
+        </SectionTitle>
       </Modal>
     </Wrapper>
   );

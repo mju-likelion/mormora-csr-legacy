@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import React, { useState } from 'react';
 
 import ModalPortal from 'ModalPortal';
+import ProfileImg from 'images/basicprofile.png';
 
 import ProfileDetail from './modal/ProfileDetail';
 
@@ -43,18 +44,18 @@ const Member = styled.div`
 const Profile: React.FC = () => {
   const [open, setOpen] = useState(false);
 
-  function isOpen() {
-    setOpen(pre => !pre);
+  function handleOpen() {
+    setOpen(true);
+  }
+
+  function handleClose() {
+    setOpen(false);
   }
 
   return (
     <>
-      <Member onClick={isOpen}>
-        <img
-          src='/static/image/basicprofile.png'
-          alt='기본 프로필'
-          className='photo'
-        />
+      <Member onClick={handleOpen}>
+        <img src={ProfileImg} width='208px' height='195px' alt='기본 프로필' />
         <div className='name'>유예빈</div>
         <div className='explanation'>
           8기 대표
@@ -62,7 +63,7 @@ const Profile: React.FC = () => {
           컴퓨터공학과
         </div>
       </Member>
-      <ModalPortal>{open && <ProfileDetail />}</ModalPortal>
+      <ModalPortal>{open && <ProfileDetail close={handleClose} />}</ModalPortal>
     </>
   );
 };
