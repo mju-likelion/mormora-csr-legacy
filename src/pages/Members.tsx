@@ -9,7 +9,7 @@ const BackColor = styled.div`
 `;
 
 const Grid = styled.div`
-  padding: 20px 100px 16px 100px;
+  padding: 20px 200px;
 `;
 
 const Title = styled.div`

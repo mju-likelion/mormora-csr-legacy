@@ -14,10 +14,14 @@ const Member = styled.div`
   border: 1px solid rgb(118, 118, 118);
   border-radius: 6px;
   margin-top: 50px;
-  margin-right: 35px;
+  margin-right: 100px;
   margin-bottom: 5px;
   overflow: hidden;
   cursor: pointer;
+
+  :last-child {
+    margin-right: 0;
+  }
 
   .photo {
     width: 100%;
