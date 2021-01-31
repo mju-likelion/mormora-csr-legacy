@@ -92,7 +92,7 @@ function Profiles({ lionMembers }: ProfilesProps) {
 
   return (
     <CardScroll>
-      {members.map(member => (
+      {lionMembers.map(member => (
         <MemberSection onClick={handleOpen}>
           <MemberImg>
             <img
