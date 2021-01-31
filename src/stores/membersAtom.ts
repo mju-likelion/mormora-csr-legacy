@@ -10,5 +10,13 @@ interface MemberState {
 
 export const membersState = atom<MemberState[]>({
   key: 'membersState',
-  default: [],
+  default: [
+    {
+      memberId: 1,
+      memberName: '홍승현',
+      memberImg: 'images/basicprofile.png',
+      memberPosition: 'president',
+      memberMajor: '기계공학과',
+    },
+  ],
 });

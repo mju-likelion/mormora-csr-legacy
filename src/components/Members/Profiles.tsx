@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 
 import ModalPortal from 'ModalPortal';
 import ProfileImg from 'images/basicprofile.png';
+import media from 'lib/media';
 
 import ProfileModalDetail from './modal/ProfileModalDetail';
 
@@ -23,16 +24,20 @@ const CardScroll = styled.div`
   }
 `;
 
-const Member = styled.div`
+const SectionNoneTitle = styled.div`
+  font-size: 18px;
+  padding-left: 20px;
+  margin-top: 36px;
+`;
+
+const MemberSection = styled.div`
   display: inline-block;
   background: #e5e5e5;
   width: 208px;
   height: 288px;
   border: 1px solid rgb(118, 118, 118);
   border-radius: 6px;
-  margin-top: 50px;
-  margin-right: 100px;
-  margin-bottom: 5px;
+  margin: 50px 90px 15px 0;
   overflow: hidden;
   cursor: pointer;
 
@@ -40,26 +45,34 @@ const Member = styled.div`
     margin-right: 0;
   }
 
-  .photo {
-    width: 100%;
+  ${media.xlarge} {
+    margin: 50px 80px 15px 0;
   }
 
-  .name {
-    color: #000;
-    font-weight: 600;
-    text-align: center;
-    padding-top: 16px;
-    margin-bottom: 0.5rem;
+  ${media.medium} {
+    margin: 50px 50px 15px 0;
   }
 
-  .explanation {
-    color: #4f4f4f;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 1.3;
-    text-align: center;
-    margin-bottom: 16px;
+  ${media.small} {
+    margin: 30px 20px 15px 0;
   }
+`;
+
+const MemberImg = styled.div``;
+
+const MemberName = styled.div`
+  color: #000;
+  font-weight: 600;
+  text-align: center;
+  margin: 1rem 0 0.5rem 0;
+`;
+
+const MemberContents = styled.div`
+  color: #4f4f4f;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 8px;
 `;
 
 interface ProfilesProps {
@@ -85,22 +98,21 @@ function Profiles({ members }: ProfilesProps) {
 
   return (
     <CardScroll>
-      {members.length === 0 && <div>등록된 멤버가 없습니다.</div>}
       {members.map(member => (
-        <Member onClick={handleOpen}>
-          <img
-            src={ProfileImg}
-            width='208px'
-            height='195px'
-            alt='기본 프로필'
-          />
-          <div className='name'>{member.memberName}</div>
-          <div className='explanation'>
-            {member.memberPosition}
-            <br />
-            {member.memberMajor}
-          </div>
-        </Member>
+        <MemberSection onClick={handleOpen}>
+          <MemberImg>
+            <img
+              src={ProfileImg}
+              width='208px'
+              height='195px'
+              alt='기본 프로필'
+            />
+          </MemberImg>
+
+          <MemberName>{member.memberName}</MemberName>
+          <MemberContents>{member.memberPosition}</MemberContents>
+          <MemberContents>{member.memberMajor}</MemberContents>
+        </MemberSection>
       ))}
       <ModalPortal>
         {open && <ProfileModalDetail close={handleClose} />}

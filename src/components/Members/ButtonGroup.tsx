@@ -3,7 +3,6 @@ import React from 'react';
 
 const ButtonBlock = styled.div`
   display: flex;
-  margin-top: 50px;
 `;
 
 const ButtonOne = styled.div`
@@ -29,7 +28,7 @@ const ButtonGroup: React.FC = () => {
     <ButtonBlock>
       <ButtonOne>
         <ButtonColor>
-          <div className="button_font">9기</div>
+          <div className='button_font'>9기</div>
         </ButtonColor>
       </ButtonOne>
     </ButtonBlock>

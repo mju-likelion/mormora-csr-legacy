@@ -10,17 +10,36 @@ import media from '../lib/media';
 
 const BackgroundColor = styled.div`
   background-color: #000;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 `;
 
-const Grid = styled.div`
+const SectionPadding = styled.div`
   padding: 20px 200px;
+
+  ${media.xlarge} {
+    padding: 20px 150px;
+  }
 
   ${media.large} {
     padding: 20px 100px;
   }
+
+  ${media.medium} {
+    padding: 20px 90px;
+  }
+
+  ${media.small} {
+    padding: 20px 70px;
+  }
+
+  ${media.xsmall} {
+    padding: 20px;
+  }
 `;
 
-const Title = styled.div`
+const SectionTitle = styled.div`
+  font-size: 24px;
   font-weight: 600;
   margin-top: 45px;
 `;
@@ -41,24 +60,24 @@ function Members() {
 
   return (
     <BackgroundColor>
-      <Grid>
+      <SectionPadding>
         <ButtonGroup />
-        <Title>대표</Title>
+        <SectionTitle>대표</SectionTitle>
         <Profiles members={presidents} />
 
         {vicePresidents.length > 0 && (
           <>
-            <Title>부대표</Title>
+            <SectionTitle>부대표</SectionTitle>
             <Profiles members={vicePresidents} />
           </>
         )}
 
-        <Title>운영진</Title>
+        <SectionTitle>운영진</SectionTitle>
         <Profiles members={Managers} />
 
-        <Title>아기사자</Title>
+        <SectionTitle>아기사자</SectionTitle>
         <Profiles members={Member} />
-      </Grid>
+      </SectionPadding>
     </BackgroundColor>
   );
 }
