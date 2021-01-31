@@ -1,15 +1,23 @@
 import styled from '@emotion/styled';
 import React from 'react';
+import { useRecoilValue } from 'recoil';
+
+import { membersState } from 'stores/membersAtom';
 
 import ButtonGroup from '../components/Members/ButtonGroup';
-import Profile from '../components/Members/Profile';
+import Profiles from '../components/Members/Profiles';
+import media from '../lib/media';
 
-const BackColor = styled.div`
+const BackgroundColor = styled.div`
   background-color: #000;
 `;
 
 const Grid = styled.div`
   padding: 20px 200px;
+
+  ${media.large} {
+    padding: 20px 100px;
+  }
 `;
 
 const Title = styled.div`
@@ -17,54 +25,42 @@ const Title = styled.div`
   margin-top: 45px;
 `;
 
-const CardScroll = styled.div`
-  white-space: nowrap;
-  overflow-x: auto;
-  overflow-y: hidden;
+function Members() {
+  const members = useRecoilValue(membersState);
 
-  &::-webkit-scrollbar {
-    background: #f2f2f2;
-    height: 8px;
-    border-radius: 6px;
-  }
+  const presidents = members.filter(
+    member => member.memberPosition === 'president',
+  );
+  const vicePresidents = members.filter(
+    member => member.memberPosition === 'vicePresident',
+  );
+  const Managers = members.filter(
+    member => member.memberPosition === 'manager',
+  );
+  const Member = members.filter(member => member.memberPosition === 'member');
 
-  &::-webkit-scrollbar-thumb {
-    background-color: #ff9e1b;
-    border-radius: 6px;
-  }
-`;
-
-const Members: React.FC = () => {
   return (
-    <BackColor>
+    <BackgroundColor>
       <Grid>
         <ButtonGroup />
-
         <Title>대표</Title>
-        <Profile />
-        {VicePresident()}
-        <Title>운영진</Title>
-        <CardScroll>
-          <Profile />
-          <Profile />
-          <Profile />
-          <Profile />
-          <Profile />
-        </CardScroll>
-        <Title>아기사자</Title>
-        <Profile />
-      </Grid>
-    </BackColor>
-  );
-};
+        <Profiles members={presidents} />
 
-const VicePresident = () => {
-  return (
-    <>
-      <Title>부대표</Title>
-      <Profile />
-    </>
+        {vicePresidents.length > 0 && (
+          <>
+            <Title>부대표</Title>
+            <Profiles members={vicePresidents} />
+          </>
+        )}
+
+        <Title>운영진</Title>
+        <Profiles members={Managers} />
+
+        <Title>아기사자</Title>
+        <Profiles members={Member} />
+      </Grid>
+    </BackgroundColor>
   );
-};
+}
 
 export default Members;
