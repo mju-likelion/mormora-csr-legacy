@@ -1,7 +1,7 @@
 import { Route, Switch } from 'react-router-dom';
 
 import MainPage from 'pages/MainPage';
-import Members from 'pages/Members';
+import Members from 'pages/MembersPage';
 
 const Routes = () => {
   return (

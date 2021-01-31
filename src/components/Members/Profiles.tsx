@@ -24,12 +24,6 @@ const CardScroll = styled.div`
   }
 `;
 
-const SectionNoneTitle = styled.div`
-  font-size: 18px;
-  padding-left: 20px;
-  margin-top: 36px;
-`;
-
 const MemberSection = styled.div`
   display: inline-block;
   background: #e5e5e5;
@@ -76,7 +70,7 @@ const MemberContents = styled.div`
 `;
 
 interface ProfilesProps {
-  members: {
+  lionMembers: {
     memberId: Number;
     memberName: String;
     memberImg: String;
@@ -85,7 +79,7 @@ interface ProfilesProps {
   }[];
 }
 
-function Profiles({ members }: ProfilesProps) {
+function Profiles({ lionMembers }: ProfilesProps) {
   const [open, setOpen] = useState(false);
 
   function handleOpen() {

@@ -44,42 +44,62 @@ const SectionTitle = styled.div`
   margin-top: 45px;
 `;
 
-function Members() {
-  const members = useRecoilValue(membersState);
+const SectionNoneTitle = styled.div`
+  font-size: 18px;
+  padding-left: 20px;
+  margin-top: 36px;
+`;
 
-  const presidents = members.filter(
-    member => member.memberPosition === 'president',
+function MembersPage() {
+  const lionMembers = useRecoilValue(membersState);
+
+  const presidents = lionMembers.filter(
+    lionMember => lionMember.memberPosition === 'president',
   );
-  const vicePresidents = members.filter(
-    member => member.memberPosition === 'vicePresident',
+  const vicePresidents = lionMembers.filter(
+    lionMember => lionMember.memberPosition === 'vicePresident',
   );
-  const Managers = members.filter(
-    member => member.memberPosition === 'manager',
+  const Managers = lionMembers.filter(
+    lionMember => lionMember.memberPosition === 'manager',
   );
-  const Member = members.filter(member => member.memberPosition === 'member');
+  const Members = lionMembers.filter(
+    lionMember => lionMember.memberPosition === 'member',
+  );
 
   return (
     <BackgroundColor>
       <SectionPadding>
         <ButtonGroup />
         <SectionTitle>대표</SectionTitle>
-        <Profiles members={presidents} />
+        {presidents.length === 0 ? (
+          <SectionNoneTitle>등록된 대표가 없습니다.</SectionNoneTitle>
+        ) : (
+          <Profiles lionMembers={presidents} />
+        )}
 
         {vicePresidents.length > 0 && (
           <>
             <SectionTitle>부대표</SectionTitle>
-            <Profiles members={vicePresidents} />
+            <Profiles lionMembers={vicePresidents} />
           </>
         )}
 
         <SectionTitle>운영진</SectionTitle>
-        <Profiles members={Managers} />
+        {Managers.length === 0 ? (
+          <SectionNoneTitle>등록된 운영진이 없습니다.</SectionNoneTitle>
+        ) : (
+          <Profiles lionMembers={Managers} />
+        )}
 
         <SectionTitle>아기사자</SectionTitle>
-        <Profiles members={Member} />
+        {Members.length === 0 ? (
+          <SectionNoneTitle>등록된 멤버가 없습니다.</SectionNoneTitle>
+        ) : (
+          <Profiles lionMembers={Members} />
+        )}
       </SectionPadding>
     </BackgroundColor>
   );
 }
 
-export default Members;
+export default MembersPage;
